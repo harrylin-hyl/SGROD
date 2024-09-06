@@ -16,7 +16,9 @@ Experiments on public datasets show that SGROD not only improves the recall of u
 
 # Overview
 
-SGROD introduces large vision models (LVMs) (e.g., [SAM](https://github.com/facebookresearch/segment-anything)) into OWOD and implements this motivation based on the [PROB](https://github.com/orrzohar/PROB) model. In training, (1) we introduce a Dynamic Label Assignment (DLA) module to dynamically filter out noisy labels generated from SAM and mitigate the impact of noise, improving overall performance. (2) We propose a Cross-Layer Learning (CLL) strategy to mitigate the optimization conflict between objectness learning and classification learning, thus enhancing precision on known objects while maintaining high recall on unknown objects. (3) We introduce a SAM-based Negative Sampling (SNS) method to prevent unintended expansion of objectness semantics and thereby mitigate the risk of misclassification caused by mistaking unknown objects as known ones.  For inference, the model can detect potential unknown objects with an unknown objectness branch with minor computational costs. For more, see the manuscript.
+- To the best of our knowledge, we are the first to propose exploiting the rich generic knowledge of large visual models (LVMs) to enhance OWOD. We demonstrate the feasibility of employing SAM for OWOD and establish the very first SAM-Guided OWOD baseline method.
+- We identify and address three vital challenges in SAM-Guided OWOD, \textit{i.e.}, learning noisy labels from SAM by a dynamic label assignment (DLA) module, mitigating the optimization conflict between objectness and classification learning by a cross-layer learning (CLL) strategy, and preventing uncontrolled expansion of objectness semantics by a SAM-based negative sampling (SNS) module.
+- Our proposed SGROD method significantly improves the recall of unknown objects while achieving robust performance on known object detection, which proves the feasibility and promise of leveraging LVMs to advance OWOD for handling open-world environments.
 
 # Installation
 
